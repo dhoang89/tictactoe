@@ -39,15 +39,39 @@ class MainMenuScreen extends StatelessWidget {
           children: [
             DelayedAppear(
               ms: 800,
-              child: RoughButton(
-                onTap: () {
-                  GoRouter.of(context).go('/play');
-                },
-                drawRectangle: true,
-                textColor: palette.redPen,
-                fontSize: 42,
-                soundEffect: SfxType.erase,
-                child: const Text('Play'),
+              child: Column(
+                children: [
+                  RoughButton(
+                    onTap: () {
+                      GoRouter.of(context).go('/wchess');
+                    },
+                    drawRectangle: true,
+                    textColor: palette.redPen,
+                    fontSize: 42,
+                    soundEffect: SfxType.erase,
+                    child: const Text('Chess'),
+                  ),
+                  RoughButton(
+                    onTap: () {
+                      GoRouter.of(context).go('/echess');
+                    },
+                    drawRectangle: true,
+                    textColor: palette.redPen,
+                    fontSize: 42,
+                    soundEffect: SfxType.erase,
+                    child: const Text('Eastern Chess'),
+                  ),
+                  RoughButton(
+                    onTap: () {
+                      GoRouter.of(context).go('/play');
+                    },
+                    drawRectangle: true,
+                    textColor: palette.redPen,
+                    fontSize: 42,
+                    soundEffect: SfxType.erase,
+                    child: const Text('Play'),
+                  ),
+                ],
               ),
             ),
             if (gamesServicesController != null) ...[

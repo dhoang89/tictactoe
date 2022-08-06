@@ -21,6 +21,8 @@ import 'package:tictactoe/src/level_selection/level_selection_screen.dart';
 import 'package:tictactoe/src/level_selection/levels.dart';
 import 'package:tictactoe/src/main_menu/main_menu_screen.dart';
 import 'package:tictactoe/src/play_session/play_session_screen.dart';
+import 'package:tictactoe/src/play_session/w_chess_board.dart';
+import 'package:tictactoe/src/play_session/e_chess_board.dart';
 import 'package:tictactoe/src/player_progress/persistence/local_storage_player_progress_persistence.dart';
 import 'package:tictactoe/src/player_progress/persistence/player_progress_persistence.dart';
 import 'package:tictactoe/src/player_progress/player_progress.dart';
@@ -79,15 +81,15 @@ void guardedMain() {
   GamesServicesController? gamesServicesController;
   if (!kIsWeb && (Platform.isIOS || Platform.isAndroid)) {
     gamesServicesController = GamesServicesController()
-      // Attempt to log the player in.
+    // Attempt to log the player in.
       ..initialize();
   }
 
   InAppPurchaseController? inAppPurchaseController;
   if (!kIsWeb && (Platform.isIOS || Platform.isAndroid)) {
     inAppPurchaseController = InAppPurchaseController(InAppPurchase.instance)
-      // Subscribing to [InAppPurchase.instance.purchaseStream] as soon
-      // as possible in order not to miss any updates.
+    // Subscribing to [InAppPurchase.instance.purchaseStream] as soon
+    // as possible in order not to miss any updates.
       ..subscribe();
     // Ask the store what the player has bought already.
     inAppPurchaseController.restorePurchases();
@@ -112,15 +114,34 @@ class MyApp extends StatelessWidget {
       GoRoute(
           path: '/',
           builder: (context, state) =>
-              const MainMenuScreen(key: Key('main menu')),
+          const MainMenuScreen(key: Key('main menu')),
           routes: [
+            GoRoute(
+              path: 'echess',
+              pageBuilder: (context, state) {
+                return buildTransition(
+                  child: EastChessBoard(),
+                  color: context.watch<Palette>().backgroundPlaySession,
+                );
+              },
+            ),
+            GoRoute(
+              path: 'wchess',
+              pageBuilder: (context, state) {
+                return buildTransition(
+                  child: WChessBoard(),
+                  color: context.watch<Palette>().backgroundPlaySession,
+                );
+
+              },
+            ),
             GoRoute(
                 path: 'play',
                 pageBuilder: (context, state) => buildTransition(
-                      child: const LevelSelectionScreen(
-                          key: Key('level selection')),
-                      color: context.watch<Palette>().backgroundLevelSelection,
-                    ),
+                  child: const LevelSelectionScreen(
+                      key: Key('level selection')),
+                  color: context.watch<Palette>().backgroundLevelSelection,
+                ),
                 routes: [
                   GoRoute(
                     path: 'session/:level',
@@ -158,7 +179,7 @@ class MyApp extends StatelessWidget {
             GoRoute(
               path: 'settings',
               builder: (context, state) =>
-                  const SettingsScreen(key: Key('settings')),
+              const SettingsScreen(key: Key('settings')),
             ),
           ]),
     ],
