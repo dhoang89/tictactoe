@@ -1,4 +1,4 @@
-package dev.flutter.tictactoe
+package dh.games.chess
 
 import io.flutter.embedding.android.FlutterActivity
 

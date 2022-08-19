@@ -7,7 +7,7 @@
     <!--app_id-->
     <string name="app_id" translatable="false">321102237313</string>
     <!--package_name-->
-    <string name="package_name" translatable="false">dev.flutter.tictactoe</string>
+    <string name="package_name" translatable="false">dh.games.chess</string>
     <!--leaderboard Highest Score-->
     <string name="leaderboard_highest_score" translatable="false">CgkIgZ29mawJEAIQAQ</string>
 </resources>

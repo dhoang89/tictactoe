@@ -3,7 +3,7 @@
 A mobile game built in Flutter. You can find it published on stores:
 
 - [App Store (iOS)](https://apps.apple.com/us/app/tic-tac-toe-puzzle-game/id1611729977)
-- [Play Store (Android)](https://play.google.com/store/apps/details?id=dev.flutter.tictactoe)
+- [Play Store (Android)](https://play.google.com/store/apps/details?id=dh.games.chess)
 
 This game was built using the [`game_template`](https://github.com/flutter/samples/tree/master/game_template)
 that you'll find in [github.com/flutter/samples](https://github.com/flutter/samples).

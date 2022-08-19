@@ -43,6 +43,16 @@ class MainMenuScreen extends StatelessWidget {
                 children: [
                   RoughButton(
                     onTap: () {
+                      GoRouter.of(context).go('/signin');
+                    },
+                    drawRectangle: true,
+                    textColor: palette.redPen,
+                    fontSize: 42,
+                    soundEffect: SfxType.erase,
+                    child: const Text('Sign in'),
+                  ),
+                  RoughButton(
+                    onTap: () {
                       GoRouter.of(context).go('/wchess');
                     },
                     drawRectangle: true,

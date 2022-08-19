@@ -23,6 +23,7 @@ import 'package:tictactoe/src/main_menu/main_menu_screen.dart';
 import 'package:tictactoe/src/play_session/play_session_screen.dart';
 import 'package:tictactoe/src/play_session/w_chess_board.dart';
 import 'package:tictactoe/src/play_session/e_chess_board.dart';
+import 'package:tictactoe/src/play_session/login_home_page.dart';
 import 'package:tictactoe/src/player_progress/persistence/local_storage_player_progress_persistence.dart';
 import 'package:tictactoe/src/player_progress/persistence/player_progress_persistence.dart';
 import 'package:tictactoe/src/player_progress/player_progress.dart';
@@ -116,6 +117,15 @@ class MyApp extends StatelessWidget {
           builder: (context, state) =>
           const MainMenuScreen(key: Key('main menu')),
           routes: [
+            GoRoute(
+              path: 'signin',
+              pageBuilder: (context, state) {
+                return buildTransition(
+                  child: LoginHomePage(),
+                  color: context.watch<Palette>().backgroundPlaySession,
+                );
+              },
+            ),
             GoRoute(
               path: 'echess',
               pageBuilder: (context, state) {

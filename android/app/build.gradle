@@ -52,7 +52,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "dev.flutter.tictactoe"
+        applicationId "dh.games.chess"
         minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
